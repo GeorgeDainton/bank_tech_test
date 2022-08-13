@@ -38,5 +38,21 @@ describe('Bank Account', () => {
       )
 
   })
+  
+  it('Creates a new transaction when withdrawing money', () => {
+    const bankAccount = new BankAccount(transaction = Transaction)
+    bankAccount.deposit(100)
+    bankAccount.withdraw(50)
+
+    expect(bankAccount.transactions[1]).toEqual(
+      {
+        amount: 50,
+        balance: 50,
+        credit: false,
+        date: new Date()
+      }
+      )
+
+  })
 
 })
