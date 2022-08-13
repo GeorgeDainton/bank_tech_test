@@ -33,7 +33,7 @@ describe('Bank Account', () => {
         amount: 100,
         balance: 100,
         credit: true,
-        date: new Date()
+        date: new Date().toLocaleDateString()
       })
     })
   
@@ -47,7 +47,7 @@ describe('Bank Account', () => {
         amount: 50,
         balance: 50,
         credit: false,
-        date: new Date()
+        date: new Date().toLocaleDateString()
       })
     })
 })
