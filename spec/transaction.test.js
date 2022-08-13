@@ -19,4 +19,10 @@ describe ('Transaction', () => {
 
     expect(transaction.credit).toEqual(true)
   })
+  
+  it('Initializes with a date', () => {
+    const transaction = new Transaction(100, 100, true);
+
+    expect(transaction.date).toEqual(new Date())
+  })
 })
