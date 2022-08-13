@@ -16,4 +16,10 @@ describe('Bank Account', () => {
     
     expect(bankAccount.balance).toEqual(50)
   })
+
+  it('Withdrawing below 0 throws an error', () => {
+    const bankAccount = new BankAccount()
+   
+    expect(() => { bankAccount.withdraw(1) }).toThrow('Error! Insufficient funds!');
+  })
 })
