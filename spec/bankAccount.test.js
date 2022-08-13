@@ -34,10 +34,8 @@ describe('Bank Account', () => {
         balance: 100,
         credit: true,
         date: new Date()
-      }
-      )
-
-  })
+      })
+    })
   
   it('Creates a new transaction when withdrawing money', () => {
     const bankAccount = new BankAccount(transaction = Transaction)
@@ -50,9 +48,6 @@ describe('Bank Account', () => {
         balance: 50,
         credit: false,
         date: new Date()
-      }
-      )
-
-  })
-
+      })
+    })
 })
