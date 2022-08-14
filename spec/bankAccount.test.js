@@ -28,7 +28,7 @@ describe('Bank Account', () => {
     const bankAccount = new BankAccount(transaction = Transaction)
     bankAccount.deposit(100)
 
-    expect(bankAccount.transactions[0]).toEqual(
+    expect(bankAccount.statement.transactions[0]).toEqual(
       {
         amount: 100,
         balance: 100,
@@ -42,7 +42,7 @@ describe('Bank Account', () => {
     bankAccount.deposit(100)
     bankAccount.withdraw(50)
 
-    expect(bankAccount.transactions[1]).toEqual(
+    expect(bankAccount.statement.transactions[1]).toEqual(
       {
         amount: 50,
         balance: 50,
@@ -50,4 +50,15 @@ describe('Bank Account', () => {
         date: new Date().toLocaleDateString()
       })
     })
+
+  it('Prints statements', () => {
+    const bankAccount = new BankAccount(transaction = Transaction)
+    bankAccount.deposit(5000)
+    bankAccount.withdraw(2349)
+    bankAccount.deposit(758476)
+    bankAccount.printStatement()
+
+    expect(bankAccount.printStatement()).toContain('date || credit || debit || balance')
+    expect(bankAccount.printStatement()).toContain('14/08/2022||5000||        500014/08/2022||||        2349||265114/08/2022||758476||        761127')
+  })
 })
