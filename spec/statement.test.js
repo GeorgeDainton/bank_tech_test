@@ -35,11 +35,16 @@ describe ('Statement', () => {
     expect(statement.display()).toContain('50')
   })
   
-  // it('Contains resulting balance after transaction', () => {
-  //   const statement = new Statement(transaction = new Transaction(100, 100, true, new Date().toLocaleDateString()));
-  //   statement.transactions.push(transaction)
+  it('Contains resulting balance after transaction', () => {
+    const statement = new Statement
+    const transaction1 = new Transaction(100, 100, true);
+    const transaction2 = new Transaction(50, 50, false);
+    const transaction3 = new Transaction(500, 550, true);
+    statement.transactions.push(transaction1)
+    statement.transactions.push(transaction2)
+    statement.transactions.push(transaction3)
     
-  //   expect(statement.display()).toContain(new Date().toLocaleDateString())
-  // })
+    expect(statement.display()).toContain('550')
+  })
 
   })
